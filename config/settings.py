@@ -39,6 +39,7 @@ INSTALLED_APPS += [
 INSTALLED_APPS += [
     'api',
     'common',
+    'breaks',
 ]
 
 # after apps
@@ -85,7 +86,7 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ),
 
-    'DEFAULT_AUTHENTICATION_CLASSES': [
+    'DEFAULT_AUTHENTICATION_CLASS': [
         'rest_framework.authentication.JWTAuthentication',
         'rest_framework.authentication.BasicAuthentication',
     ],
