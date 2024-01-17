@@ -1,5 +1,5 @@
 from django.contrib import admin
-from breaks.models import organisations, groups, replacements
+from breaks.models import organisations, groups, replacements, dicts
 
 
 #########
@@ -20,7 +20,7 @@ class GroupAdmin(OrganisationAdmin):
     list_display = ('id', 'name', 'manager', 'min_active')
 
 
-@admin.register(replacements.ReplacementStatus)
+@admin.register(dicts.ReplacementStatus)
 class ReplacementStatusAdmin(admin.ModelAdmin):
     list_display = (
         'code', 'name', 'sort', 'is_active'
