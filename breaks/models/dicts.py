@@ -12,7 +12,7 @@ class ReplacementStatus(BaseDictModelMixin):
         verbose_name_plural = 'Статусы смены'
 
 
-class BreakStatus(models.Model):
+class BreakStatus(BaseDictModelMixin):
 
     class Meta:
         verbose_name = 'Статус обеда'

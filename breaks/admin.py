@@ -27,6 +27,13 @@ class ReplacementStatusAdmin(admin.ModelAdmin):
     )
 
 
+@admin.register(dicts.BreakStatus)
+class BreaksStatusAdmin(admin.ModelAdmin):
+    list_display = (
+        'code', 'name', 'sort', 'is_active'
+    )
+
+
 @admin.register(replacements.Replacement)
 class ReplacementAdmin(admin.ModelAdmin):
     list_display = (
