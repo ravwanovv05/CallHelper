@@ -9,7 +9,7 @@ class Break(models.Model):
         'breaks.Replacement', models.CASCADE, 'breaks',
         verbose_name='Смена'
     )
-    employees = models.ForeignKey(
+    employee = models.ForeignKey(
         User, models.CASCADE, 'breaks', verbose_name='Сотрудник'
     )
     break_start = models.TimeField('Начало обеда', null=True, blank=True)
@@ -18,3 +18,11 @@ class Break(models.Model):
         'breaks.BreakStatus', models.RESTRICT, 'breaks', verbose_name='Статус',
         blank=True
     )
+
+    class Meta:
+        verbose_name = 'Обед'
+        verbose_name_plural = 'Обеды'
+        ordering = ('-replacement__date', 'break_start')
+
+    def __str__(self):
+        return f"{self.employee} ({self.pk})"

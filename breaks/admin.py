@@ -1,5 +1,5 @@
 from django.contrib import admin
-from breaks.models import organisations, groups, replacements, dicts
+from breaks.models import organisations, groups, replacements, dicts, breaks
 
 
 #########
@@ -41,3 +41,8 @@ class ReplacementAdmin(admin.ModelAdmin):
     )
 
     inlines = [ReplacementEmployeeInline]
+
+
+@admin.register(breaks.Break)
+class BreakAdmin(admin.ModelAdmin):
+    list_display = ('__str__', 'replacement', 'break_start', 'break_end')
