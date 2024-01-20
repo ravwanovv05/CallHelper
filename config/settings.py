@@ -25,7 +25,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 'users.apps.UsersConfig',
 ]
+
+AUTH_USER_MODEL = 'users.User'
+
 
 # packages
 INSTALLED_APPS += [
@@ -33,12 +37,14 @@ INSTALLED_APPS += [
     'django_filters',
     'corsheaders',
     'djoser',
+    'phonenumber_field',
 ]
 
 # apps
 INSTALLED_APPS += [
     'api',
     'common',
+    'users',
     'breaks',
 ]
 
@@ -77,6 +83,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'config.wsgi.application'
+
 
 ################
 # REST FRAMEWORK
