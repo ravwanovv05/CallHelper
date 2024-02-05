@@ -5,9 +5,13 @@ from django.db import models
 
 
 class User(AbstractUser):
-    phone_number = PhoneNumberField('Номер телефона', unique=True)
+    username = models.CharField(
+        'Имя пользователя', max_length=64, unique=True, null=False, blank=False
+    )
+    email = models.EmailField('Почта', unique=True, null=False, blank=False)
+    phone_number = PhoneNumberField('Номер телефона', unique=True, null=False, blank=False)
 
-    # USERNAME_FIELD = 'phone_number'
+    USERNAME_FIELD = 'username'
     # REQUIRED_FIELDS = []
 
     objects = CustomUserManager()
